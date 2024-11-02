@@ -1,29 +1,8 @@
 import 'package:flutter/material.dart';
-import 'data.dart';
+import 'package:flutter_application_1/data.dart';
 
 class ListPage extends StatelessWidget {
   ListPage({Key? key}) : super(key: key);
-
-  final List<Map<String, String>> produk = [
-    {
-      "title": "Burger King Medium",
-      "description": "Deskripsi singkat untuk Burger King Medium.",
-      "image": "assets/burger1.png",
-      "price": "Rp.50.000,00",
-    },
-    {
-      "title": "Teh Botol",
-      "description": "Deskripsi singkat untuk Teh Botol.",
-      "image": "assets/sosro.png",
-      "price": "Rp.4.000,00",
-    },
-    {
-      "title": "Burger King Small",
-      "description": "Deskripsi singkat untuk Burger King Small.",
-      "image": "assets/burger1.png",
-      "price": "Rp.35.000,00",
-    },
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -81,11 +60,10 @@ class ListPage extends StatelessWidget {
           ),
           const Divider(thickness: 1, indent: 20, endIndent: 20),
           Expanded(
-            child: ListView.builder(
-              itemCount: produk.length,
-              itemBuilder: (context, index) {
-                final item = produk[index];
-                return Container(
+            child: ListView(
+              children: [
+                // Burger King Medium
+                Container(
                   margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: Column(
                     children: [
@@ -96,7 +74,7 @@ class ListPage extends StatelessWidget {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
                                 child: Image.asset(
-                                  item["image"]!,
+                                  "assets/burger1.png",
                                   width: 50,
                                   height: 50,
                                   fit: BoxFit.cover,
@@ -105,16 +83,17 @@ class ListPage extends StatelessWidget {
                             ),
                           ),
                           Expanded(
-                            child: Center(child: Text(item["title"]!)),
+                            child: Center(child: Text("Burger King Medium")),
                           ),
                           Expanded(
-                            child: Center(child: Text(item["price"]!)),
+                            child: Center(child: Text("Rp.50.000,00")),
                           ),
                           Expanded(
                             child: Center(
                               child: IconButton(
                                 icon: const Icon(Icons.delete, color: Colors.red),
-                                onPressed: () {},
+                                onPressed: () {
+                                },
                               ),
                             ),
                           ),
@@ -123,8 +102,90 @@ class ListPage extends StatelessWidget {
                       const Divider(thickness: 1, indent: 10, endIndent: 10),
                     ],
                   ),
-                );
-              },
+                ),
+                // Teh Botol
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Center(
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.asset(
+                                  "assets/sosro.png",
+                                  width: 50,
+                                  height: 50,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Center(child: Text("Teh Botol")),
+                          ),
+                          Expanded(
+                            child: Center(child: Text("Rp.4.000,00")),
+                          ),
+                          Expanded(
+                            child: Center(
+                              child: IconButton(
+                                icon: const Icon(Icons.delete, color: Colors.red),
+                                onPressed: () {
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const Divider(thickness: 1, indent: 10, endIndent: 10),
+                    ],
+                  ),
+                ),
+                // Burger King Small
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Center(
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.asset(
+                                  "assets/burger1.png",
+                                  width: 50,
+                                  height: 50,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Center(child: Text("Burger King Small")),
+                          ),
+                          Expanded(
+                            child: Center(child: Text("Rp.35.000,00")),
+                          ),
+                          Expanded(
+                            child: Center(
+                              child: IconButton(
+                                icon: const Icon(Icons.delete, color: Colors.red),
+                                onPressed: () {
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const Divider(thickness: 1, indent: 10, endIndent: 10),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ],
@@ -197,7 +258,7 @@ class AddDataButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15), 
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         ),
         child: const Text(
           'Add Data +',
@@ -207,4 +268,5 @@ class AddDataButton extends StatelessWidget {
     );
   }
 }
+
 
